@@ -1,1 +1,28 @@
-<h1>Hello World</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lightning Out Demo</title>
+    <script src="https://fun-computing-8222.my.salesforce.com/lightning/lightning.out.js"></script>
+  </head>
+  <body>
+    <div id="lightning-out"></div>
+  </body>
+  <script>
+    window.$Lightning.use("c:partnerLeadForm",
+        function() {
+            $Lightning.createComponent(
+                "c:partnerLeadFormTest",
+                {},                  // attributes to set on the component when created
+                document.querySelector('#lightning-out'),
+                function(cmp) {
+                    console.log('MOUNTED');
+                }
+            );
+        },
+        'https://fun-computing-8222.my.site.com/partners'
+    );
+</script>
+</html>
